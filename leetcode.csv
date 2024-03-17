@@ -1,0 +1,324 @@
+problem	p1	p2	p3	p4	p5
+3074	"You are given an array apple of size n and an array capacity of size m.
+
+There are n packs where the ith pack contains apple[i] apples. There are m boxes as well, and the ith box has a capacity of capacity[i] apples.
+
+Return the minimum number of boxes you need to select to redistribute these n packs of apples into boxes.
+
+Note that, apples from the same pack can be distributed into different boxes."	"1 <= n == apple.length <= 50
+1 <= m == capacity.length <= 50
+1 <= apple[i], capacity[i] <= 50
+The input is generated such that it's possible to redistribute packs of apples into boxes."	"Input: apple = [1,3,2], capacity = [4,3,1,5,2]
+Output: 2
+Input: apple = [5,5,5], capacity = [2,4,2,7]
+Output: 4"	"class Solution:
+    def minimumBoxes(self, apple: List[int], capacity: List[int]) -> int:
+        "	easy
+3075	"You are given an array happiness of length n, and a positive integer k.
+
+There are n children standing in a queue, where the ith child has happiness value happiness[i]. You want to select k children from these n children in k turns.
+
+In each turn, when you select a child, the happiness value of all the children that have not been selected till now decreases by 1. Note that the happiness value cannot become negative and gets decremented only if it is positive.
+
+Return the maximum sum of the happiness values of the selected children you can achieve by selecting k children."	"1 <= n == happiness.length <= 2 * 105
+1 <= happiness[i] <= 108
+1 <= k <= n"	"Input: happiness = [1,2,3], k = 2
+Output: 4
+nput: happiness = [1,1,1,1], k = 2
+Output: 1
+Input: happiness = [2,3,4,5], k = 1
+Output: 5"	"class Solution:
+    def maximumHappinessSum(self, happiness: List[int], k: int) -> int:"	medium
+3076	"You are given an array arr of size n consisting of non-empty strings.
+
+Find a string array answer of size n such that:
+
+answer[i] is the shortest substring of arr[i] that does not occur as a substring in any other string in arr. If multiple such substrings exist, answer[i] should be the lexicographically smallest. And if no such substring exists, answer[i] should be an empty string.
+Return the array answer."	"n == arr.length
+2 <= n <= 100
+1 <= arr[i].length <= 20
+arr[i] consists only of lowercase English letters."	"Input: arr = [""cab"",""ad"",""bad"",""c""]
+Output: [""ab"","""",""ba"",""""]
+Input: arr = [""abc"",""bcd"",""abcd""]
+Output: ["""","""",""abcd""]"	"class Solution:
+    def shortestSubstrings(self, arr: List[str]) -> List[str]:
+        "	medium
+3077	"You are given a 0-indexed array of integers nums of length n, and a positive odd integer k.
+
+The strength of x subarrays is defined as strength = sum[1] * x - sum[2] * (x - 1) + sum[3] * (x - 2) - sum[4] * (x - 3) + ... + sum[x] * 1 where sum[i] is the sum of the elements in the ith subarray. Formally, strength is sum of (-1)i+1 * sum[i] * (x - i + 1) over all i's such that 1 <= i <= x.
+
+You need to select k disjoint subarrays from nums, such that their strength is maximum.
+
+Return the maximum possible strength that can be obtained.
+
+Note that the selected subarrays don't need to cover the entire array."	"1 <= n <= 10^4
+-10^9 <= nums[i] <= 10^9
+1 <= k <= n
+1 <= n * k <= 10^6
+k is odd."	"Input: nums = [1,2,3,-1,2], k = 3
+Output: 22
+Input: nums = [12,-2,-2,-2,-2], k = 5
+Output: 64
+Input: nums = [-1,-2,-3], k = 1
+Output: -1"	"class Solution:
+    def maximumStrength(self, nums: List[int], k: int) -> int:
+        "	hard
+3046	"You are given an integer array nums of even length. You have to split the array into two parts nums1 and nums2 such that:
+
+nums1.length == nums2.length == nums.length / 2.
+nums1 should contain distinct elements.
+nums2 should also contain distinct elements.
+Return true if it is possible to split the array, and false otherwise."	"1 <= nums.length <= 100
+nums.length % 2 == 0
+1 <= nums[i] <= 100"	"Input: nums = [1,1,2,2,3,4]
+Output: true
+Input: nums = [1,1,1,1]
+Output: false"	"class Solution:
+    def isPossibleToSplit(self, nums: List[int]) -> bool:
+        "	easy
+3047	"here exist n rectangles in a 2D plane. You are given two 0-indexed 2D integer arrays bottomLeft and topRight, both of size n x 2, where bottomLeft[i] and topRight[i] represent the bottom-left and top-right coordinates of the ith rectangle respectively.
+
+You can select a region formed from the intersection of two of the given rectangles. You need to find the largest area of a square that can fit inside this region if you select the region optimally.
+
+Return the largest possible area of a square, or 0 if there do not exist any intersecting regions between the rectangles."	"n == bottomLeft.length == topRight.length
+2 <= n <= 10^3
+bottomLeft[i].length == topRight[i].length == 2
+1 <= bottomLeft[i][0], bottomLeft[i][1] <= 10^7
+1 <= topRight[i][0], topRight[i][1] <= 10^7
+bottomLeft[i][0] < topRight[i][0]
+bottomLeft[i][1] < topRight[i][1]"	"Input: bottomLeft = [[1,1],[2,2],[3,1]], topRight = [[3,3],[4,4],[6,6]]
+Output: 1
+Input: bottomLeft = [[1,1],[2,2],[1,2]], topRight = [[3,3],[4,4],[3,4]]
+Output: 1
+Input: bottomLeft = [[1,1],[3,3],[3,1]], topRight = [[2,2],[4,4],[4,2]]
+Output: 0"	"class Solution:
+    def largestSquareArea(self, bottomLeft: List[List[int]], topRight: List[List[int]]) -> int:
+        "	medium
+3048	"You are given two 1-indexed integer arrays, nums and, changeIndices, having lengths n and m, respectively.
+
+Initially, all indices in nums are unmarked. Your task is to mark all indices in nums.
+
+In each second, s, in order from 1 to m (inclusive), you can perform one of the following operations:
+
+Choose an index i in the range [1, n] and decrement nums[i] by 1.
+If nums[changeIndices[s]] is equal to 0, mark the index changeIndices[s].
+Do nothing.
+Return an integer denoting the earliest second in the range [1, m] when all indices in nums can be marked by choosing operations optimally, or -1 if it is impossible."	"1 <= n == nums.length <= 2000
+0 <= nums[i] <= 10^9
+1 <= m == changeIndices.length <= 2000
+1 <= changeIndices[i] <= n"	"Input: nums = [2,2,0], changeIndices = [2,2,2,2,3,2,2,1]
+Output: 8
+Input: nums = [1,3], changeIndices = [1,1,1,2,1,1,1]
+Output: 6
+Input: nums = [0,1], changeIndices = [2,2,2]
+Output: -1"	"class Solution:
+    def earliestSecondToMarkIndices(self, nums: List[int], changeIndices: List[int]) -> int:"	medium
+3049	"You are given two 1-indexed integer arrays, nums and, changeIndices, having lengths n and m, respectively.
+
+Initially, all indices in nums are unmarked. Your task is to mark all indices in nums.
+
+In each second, s, in order from 1 to m (inclusive), you can perform one of the following operations:
+
+Choose an index i in the range [1, n] and decrement nums[i] by 1.
+Set nums[changeIndices[s]] to any non-negative value.
+Choose an index i in the range [1, n], where nums[i] is equal to 0, and mark index i.
+Do nothing.
+Return an integer denoting the earliest second in the range [1, m] when all indices in nums can be marked by choosing operations optimally, or -1 if it is impossible.
+
+ "	"1 <= n == nums.length <= 5000
+0 <= nums[i] <= 10^9
+1 <= m == changeIndices.length <= 5000
+1 <= changeIndices[i] <= n"	"Input: nums = [2,2,0], changeIndices = [2,2,2,2,3,2,2,1]
+Output: 8
+Input: nums = [1,3], changeIndices = [1,1,1,2,1,1,1]
+Output: 6
+Input: nums = [0,1], changeIndices = [2,2,2]
+Output: -1"	"class Solution:
+    def earliestSecondToMarkIndices(self, nums: List[int], changeIndices: List[int]) -> int:
+        "	hard
+3028	"An ant is on a boundary. It sometimes goes left and sometimes right.
+
+You are given an array of non-zero integers nums. The ant starts reading nums from the first element of it to its end. At each step, it moves according to the value of the current element:
+
+If nums[i] < 0, it moves left by -nums[i] units.
+If nums[i] > 0, it moves right by nums[i] units.
+Return the number of times the ant returns to the boundary.
+
+Notes:
+
+There is an infinite space on both sides of the boundary.
+We check whether the ant is on the boundary only after it has moved |nums[i]| units. In other words, if the ant crosses the boundary during its movement, it does not count."	"1 <= nums.length <= 100
+-10 <= nums[i] <= 10
+nums[i] != 0"	"Input: nums = [2,3,-5]
+Output: 1
+Input: nums = [3,2,-3,-4]
+Output: 0"	"class Solution:
+    def returnToBoundaryCount(self, nums: List[int]) -> int:"	easy
+3029	"You are given a 0-indexed string word and an integer k.
+
+At every second, you must perform the following operations:
+
+Remove the first k characters of word.
+Add any k characters to the end of word.
+Note that you do not necessarily need to add the same characters that you removed. However, you must perform both operations at every second.
+
+Return the minimum time greater than zero required for word to revert to its initial state."	"1 <= word.length <= 50
+1 <= k <= word.length
+word consists only of lowercase English letters."	"Input: word = ""abacaba"", k = 3
+Output: 2
+Input: word = ""abacaba"", k = 4
+Output: 1
+Input: word = ""abcbabcd"", k = 2
+Output: 4"	"class Solution:
+    def minimumTimeToInitialState(self, word: str, k: int) -> int:"	medium
+3030	"You are given a 0-indexed m x n grid image which represents a grayscale image, where image[i][j] represents a pixel with intensity in the range[0..255]. You are also given a non-negative integer threshold.
+
+Two pixels image[a][b] and image[c][d] are said to be adjacent if |a - c| + |b - d| == 1.
+
+A region is a 3 x 3 subgrid where the absolute difference in intensity between any two adjacent pixels is less than or equal to threshold.
+
+All pixels in a region belong to that region, note that a pixel can belong to multiple regions.
+
+You need to calculate a 0-indexed m x n grid result, where result[i][j] is the average intensity of the region to which image[i][j] belongs, rounded down to the nearest integer. If image[i][j] belongs to multiple regions, result[i][j] is the average of the rounded down average intensities of these regions, rounded down to the nearest integer. If image[i][j] does not belong to any region, result[i][j] is equal to image[i][j].
+
+Return the grid result."	"3 <= n, m <= 500
+0 <= image[i][j] <= 255
+0 <= threshold <= 255"	"Input: image = [[10,20,30],[15,25,35],[20,30,40],[25,35,45]], threshold = 12
+Output: [[25,25,25],[27,27,27],[27,27,27],[30,30,30]]
+Input: image = [[5,6,7],[8,9,10],[11,12,13]], threshold = 1
+Output: [[5,6,7],[8,9,10],[11,12,13]]"	"class Solution:
+    def resultGrid(self, image: List[List[int]], threshold: int) -> List[List[int]]:
+        "	medium
+3019	"You are given a 0-indexed string s typed by a user. Changing a key is defined as using a key different from the last used key. For example, s = ""ab"" has a change of a key while s = ""bBBb"" does not have any.
+
+Return the number of times the user had to change the key.
+
+Note: Modifiers like shift or caps lock won't be counted in changing the key that is if a user typed the letter 'a' and then the letter 'A' then it will not be considered as a changing of key."	"1 <= s.length <= 100
+s consists of only upper case and lower case English letters."	"Input: s = ""aAbBcC""
+Output: 2
+Input: s = ""AaAaAaaA""
+Output: 0"	"class Solution:
+    def countKeyChanges(self, s: str) -> int:"	easy
+3020	"You are given an array of positive integers nums.
+
+You need to select a subset of nums which satisfies the following condition:
+
+You can place the selected elements in a 0-indexed array such that it follows the pattern: [x, x2, x4, ..., xk/2, xk, xk/2, ..., x4, x2, x] (Note that k can be be any non-negative power of 2). For example, [2, 4, 16, 4, 2] and [3, 9, 3] follow the pattern while [2, 4, 8, 4, 2] does not.
+Return the maximum number of elements in a subset that satisfies these conditions."	"2 <= nums.length <= 10^5
+1 <= nums[i] <= 10^9"	"Input: nums = [5,4,1,2,2]
+Output: 3
+Input: nums = [1,3,2,4]
+Output: 1"	"class Solution:
+    def maximumLength(self, nums: List[int]) -> int:
+        "	medium
+3021	"Alice and Bob are playing a turn-based game on a circular field surrounded by flowers. The circle represents the field, and there are x flowers in the clockwise direction between Alice and Bob, and y flowers in the anti-clockwise direction between them.
+
+The game proceeds as follows:
+
+Alice takes the first turn.
+In each turn, a player must choose either the clockwise or anti-clockwise direction and pick one flower from that side.
+At the end of the turn, if there are no flowers left at all, the current player captures their opponent and wins the game.
+Given two integers, n and m, the task is to compute the number of possible pairs (x, y) that satisfy the conditions:
+
+Alice must win the game according to the described rules.
+The number of flowers x in the clockwise direction must be in the range [1,n].
+The number of flowers y in the anti-clockwise direction must be in the range [1,m].
+Return the number of possible pairs (x, y) that satisfy the conditions mentioned in the statement."	"1 <= n, m <= 10^5"	"Input: n = 3, m = 2
+Output: 3
+Input: n = 1, m = 1
+Output: 0"	"class Solution:
+    def flowerGame(self, n: int, m: int) -> int:
+        "	medium
+3022	"You are given a 0-indexed integer array nums and an integer k.
+
+In one operation, you can pick any index i of nums such that 0 <= i < nums.length - 1 and replace nums[i] and nums[i + 1] with a single occurrence of nums[i] & nums[i + 1], where & represents the bitwise AND operator.
+
+Return the minimum possible value of the bitwise OR of the remaining elements of nums after applying at most k operations."	"1 <= nums.length <= 105
+0 <= nums[i] < 230
+0 <= k < nums.length"	"Input: nums = [3,5,3,2,7], k = 2
+Output: 3
+Input: nums = [7,3,15,14,2,8], k = 4
+Output: 2
+Input: nums = [10,7,10,3,9,14,9,4], k = 1
+Output: 15
+"	"class Solution:
+    def minOrAfterOperations(self, nums: List[int], k: int) -> int:"	hard
+3014	"You are given a string word containing distinct lowercase English letters.
+
+Telephone keypads have keys mapped with distinct collections of lowercase English letters, which can be used to form words by pushing them. For example, the key 2 is mapped with [""a"",""b"",""c""], we need to push the key one time to type ""a"", two times to type ""b"", and three times to type ""c"" .
+
+It is allowed to remap the keys numbered 2 to 9 to distinct collections of letters. The keys can be remapped to any amount of letters, but each letter must be mapped to exactly one key. You need to find the minimum number of times the keys will be pushed to type the string word.
+
+Return the minimum number of pushes needed to type word after remapping the keys.
+
+An example mapping of letters to keys on a telephone keypad is given below. Note that 1, *, #, and 0 do not map to any letters."	"1 <= word.length <= 26
+word consists of lowercase English letters.
+All letters in word are distinct."	"Input: word = ""abcde""
+Output: 5
+Input: word = ""xycdefghij""
+Output: 12"	"class Solution:
+    def minimumPushes(self, word: str) -> int:
+        "	easy
+3015	"You are given three positive integers n, x, and y.
+
+In a city, there exist houses numbered 1 to n connected by n streets. There is a street connecting the house numbered i with the house numbered i + 1 for all 1 <= i <= n - 1 . An additional street connects the house numbered x with the house numbered y.
+
+For each k, such that 1 <= k <= n, you need to find the number of pairs of houses (house1, house2) such that the minimum number of streets that need to be traveled to reach house2 from house1 is k.
+
+Return a 1-indexed array result of length n where result[k] represents the total number of pairs of houses such that the minimum streets required to reach one house from the other is k.
+
+Note that x and y can be equal."	"2 <= n <= 100
+1 <= x, y <= n"	"Input: n = 3, x = 1, y = 3
+Output: [6,0,0]
+Input: n = 5, x = 2, y = 4
+Output: [10,8,2,0,0]
+Input: n = 4, x = 1, y = 1
+Output: [6,4,2,0]"	"class Solution:
+    def countOfPairs(self, n: int, x: int, y: int) -> List[int]:"	medium
+3042	"You are given a 0-indexed string array words.
+
+Let's define a boolean function isPrefixAndSuffix that takes two strings, str1 and str2:
+
+isPrefixAndSuffix(str1, str2) returns true if str1 is both a prefix and a suffix of str2, and false otherwise.
+For example, isPrefixAndSuffix(""aba"", ""ababa"") is true because ""aba"" is a prefix of ""ababa"" and also a suffix, but isPrefixAndSuffix(""abc"", ""abcd"") is false.
+
+Return an integer denoting the number of index pairs (i, j) such that i < j, and isPrefixAndSuffix(words[i], words[j]) is true."	"1 <= words.length <= 50
+1 <= words[i].length <= 10
+words[i] consists only of lowercase English letters."	"Input: words = [""a"",""aba"",""ababa"",""aa""]
+Output: 4
+Input: words = [""pa"",""papa"",""ma"",""mama""]
+Output: 2
+Input: words = [""abab"",""ab""]
+Output: 0"	"class Solution:
+    def countPrefixSuffixPairs(self, words: List[str]) -> int:
+        "	easy
+2951	"You are given a 0-indexed array mountain. Your task is to find all the peaks in the mountain array.
+
+Return an array that consists of indices of peaks in the given array in any order.
+
+Notes:
+
+A peak is defined as an element that is strictly greater than its neighboring elements.
+The first and last elements of the array are not a peak."	"3 <= mountain.length <= 100
+1 <= mountain[i] <= 100"	"Input: mountain = [2,4,4]
+Output: []
+Input: mountain = [1,4,3,8,5]
+Output: [1,3]"	"class Solution:
+    def findPeaks(self, mountain: List[int]) -> List[int]:
+        "	easy
+2952	"You are given a 0-indexed integer array coins, representing the values of the coins available, and an integer target.
+
+An integer x is obtainable if there exists a subsequence of coins that sums to x.
+
+Return the minimum number of coins of any value that need to be added to the array so that every integer in the range [1, target] is obtainable.
+
+A subsequence of an array is a new non-empty array that is formed from the original array by deleting some (possibly none) of the elements without disturbing the relative positions of the remaining elements."	"1 <= target <= 105
+1 <= coins.length <= 105
+1 <= coins[i] <= target"	"Input: coins = [1,4,10], target = 19
+Output: 2
+Input: coins = [1,4,10,5,7,19], target = 19
+Output: 1
+Input: coins = [1,1,1], target = 20
+Output: 3"	"class Solution:
+    def minimumAddedCoins(self, coins: List[int], target: int) -> int:
+        "	medium

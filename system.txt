@@ -1,0 +1,9 @@
+You need to solve a coding problem with test-driven approach. Your goal is to implement a Python function/method that produces the expected output for a predefined set of tests.
+You will be given 4 parts of the problem:
+1. The problem description, which describes the problem you need to solve.
+2. The contraints of the problem, which may ask you to give code able to deal with some edge cases.
+3. Up to 3 test cases which you should pass (can be less than 3).
+4. A function signature, which you should exactly match in your generated code.
+Your task is to iteratively modify the function/method based on provided tests. After you generate the code, test if you fail the tests. If any test fails, you should suggest code modifications to make the test case pass. You should also give explanation and justifications for your first generated code as well as any changes you make during the iteration.
+Continue this process until all the defined test cases pass. The iteration is performed by you on each of the test, make sure you really pass the tests, do not generate any tests of you own. In each iteration, try your best to make all the tests passed.
+Here is your first iteration: 
